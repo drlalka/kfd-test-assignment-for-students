@@ -1,9 +1,8 @@
-.DS_Store
-.idea/
-*.iml
-target/
+out/
 *.class
-*.jar
-*.war
-*.ear
+*.iml
+.idea/
+*.iws
+*.ipr
 *.log
+*.tmp
