@@ -6,3 +6,5 @@ out/
 *.ipr
 *.log
 *.tmp
+*.xml
+*.jar

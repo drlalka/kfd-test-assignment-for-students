@@ -30,7 +30,7 @@ public class CLI {
 
             switch (choice) {
                 case "1":
-                    while(true){
+                    while (true) {
                         printBookManagement();
                         try {
                             choice = reader.readLine();
@@ -38,11 +38,11 @@ public class CLI {
                             System.out.println("Error reading input: " + e.getMessage());
                             continue;
                         }
-                        if(handleBookChoice(choice)) break;
+                        if (handleBookChoice(choice)) break;
                     }
                     break;
                 case "2":
-                    while(true){
+                    while (true) {
                         printUserManagement();
                         try {
                             choice = reader.readLine();
@@ -50,11 +50,11 @@ public class CLI {
                             System.out.println("Error reading input: " + e.getMessage());
                             continue;
                         }
-                        if(handleUserChoice(choice)) break;
+                        if (handleUserChoice(choice)) break;
                     }
                     break;
                 case "3":
-                    while(true){
+                    while (true) {
                         printBorrowingOperations();
                         try {
                             choice = reader.readLine();
@@ -62,7 +62,7 @@ public class CLI {
                             System.out.println("Error reading input: " + e.getMessage());
                             continue;
                         }
-                        if(handleBorrowChoice(choice)) break;
+                        if (handleBorrowChoice(choice)) break;
                     }
                     break;
                 case "0":
@@ -121,24 +121,46 @@ public class CLI {
 
     private boolean handleBookChoice(String choice) {
         switch (choice) {
-            case "1": addBook(); break;
-            case "2": removeBook(); break;
-            case "3": searchBook(); break;
-            case "4": showAllBooks(); break;
-            case "0": return true;
-            default: System.out.println("Invalid choice"); break;
+            case "1":
+                addBook();
+                break;
+            case "2":
+                removeBook();
+                break;
+            case "3":
+                searchBook();
+                break;
+            case "4":
+                showAllBooks();
+                break;
+            case "0":
+                return true;
+            default:
+                System.out.println("Invalid choice");
+                break;
         }
         return false;
     }
 
     private boolean handleUserChoice(String choice) {
         switch (choice) {
-            case "1": addUser(); break;
-            case "2": removeUser(); break;
-            case "3": searchUser(); break;
-            case "4": showAllUsers(); break; // 👈 добавил
-            case "0": return true;
-            default: System.out.println("Invalid choice"); break;
+            case "1":
+                addUser();
+                break;
+            case "2":
+                removeUser();
+                break;
+            case "3":
+                searchUser();
+                break;
+            case "4":
+                showAllUsers();
+                break;
+            case "0":
+                return true;
+            default:
+                System.out.println("Invalid choice");
+                break;
         }
         return false;
     }
@@ -146,11 +168,20 @@ public class CLI {
 
     private boolean handleBorrowChoice(String choice) {
         switch (choice) {
-            case "1": borrowBook(); break;
-            case "2": returnBook(); break;
-            case "3": trackOverdue(); break;
-            case "0": return true;
-            default: System.out.println("Invalid choice"); break;
+            case "1":
+                borrowBook();
+                break;
+            case "2":
+                returnBook();
+                break;
+            case "3":
+                trackOverdue();
+                break;
+            case "0":
+                return true;
+            default:
+                System.out.println("Invalid choice");
+                break;
         }
         return false;
     }
@@ -334,11 +365,11 @@ public class CLI {
             String dateS = prompt("Type borrow date (yyyy-MM-dd) or press Enter", ".*");
             LocalDate date = dateS.trim().isEmpty() ? null : LocalDate.parse(dateS.trim());
             double result = library.returnBook(userId, bookId, date);
-            if(result >=0) {
+            if (result >= 0) {
                 System.out.println("Success: fine is " + result);
                 return;
             }
-            switch ((int) result){
+            switch ((int) result) {
                 case -1:
                     System.out.println("Book not found");
                     break;
@@ -352,7 +383,7 @@ public class CLI {
                     System.out.println("user cant return");
                     break;
             }
-        } catch(IOException e) {
+        } catch (IOException e) {
             System.out.println("Input Error: " + e.getMessage());
         }
     }
@@ -361,7 +392,7 @@ public class CLI {
         System.out.println("\nTrack overdue:");
         List<Book> books = library.getBorrowedBooks();
         for (Book book : books) {
-            if(book == null) continue;
+            if (book == null) continue;
             System.out.println("Book " + book.getId() + ": " + book.getName());
             double fine = library.getFine(book.getIdBorrowUser(), book.getId(), null);
             System.out.println("\t by User: " + book.getIdBorrowUser() +

@@ -8,6 +8,7 @@ public class BookStorage {
     private final Map<Integer, Book> booksById;
     private final Map<String, Book> booksByName;
     private int lastId;
+
     public BookStorage() {
         this.booksById = new LinkedHashMap<>();
         this.booksByName = new LinkedHashMap<>();
@@ -18,7 +19,7 @@ public class BookStorage {
         if (book == null || book.getId() < 0 || book.getName() == null) {
             return ErrorMess.BadRequest;
         }
-        if(book.getId() == 0){
+        if (book.getId() == 0) {
             book.setId(++lastId);
         }
         if (booksById.containsKey(book.getId()) || booksByName.containsKey(book.getName().toLowerCase())) {
@@ -68,5 +69,7 @@ public class BookStorage {
         return borrowedBooks;
     }
 
-    public LinkedList<Book> getBooks() {return  new LinkedList<>(booksById.values());}
+    public LinkedList<Book> getBooks() {
+        return new LinkedList<>(booksById.values());
+    }
 }

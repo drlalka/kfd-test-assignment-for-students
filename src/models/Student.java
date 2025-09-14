@@ -2,8 +2,9 @@ package models;
 
 public class Student extends User {
     private String group;
+
     public Student(int userId, String name, String email, String group) {
-        super(userId, name,  email);
+        super(userId, name, email);
         this.group = group;
     }
 
@@ -22,7 +23,9 @@ public class Student extends User {
         return 0.50;
     }
 
-    public String getGroup() {return group;}
+    public String getGroup() {
+        return group;
+    }
 
     @Override
     public User copy() {

@@ -37,6 +37,7 @@ public class Test {
                 "0",
                 "0"
         };
+
         String input = String.join("\n", inputLines);
 
 

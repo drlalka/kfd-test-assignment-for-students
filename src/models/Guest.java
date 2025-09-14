@@ -4,7 +4,7 @@ public class Guest extends User {
     public Guest(int userId, String name, String email) {
         super(userId, name, email);
     }
-    
+
     @Override
     public int getMaxBooks() {
         return 1;
@@ -20,7 +20,7 @@ public class Guest extends User {
         return 5;
     }
 
-    public User copy(){
+    public User copy() {
         return new Guest(this.getId(), this.getName(), this.getEmail());
     }
 }

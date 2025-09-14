@@ -24,7 +24,9 @@ public class Library {
 
     public ErrorMess removeUserByEmail(String email) {
         User user = this.getUserByEmail(email);
-        if(user == null) {return ErrorMess.NotFound;}
+        if (user == null) {
+            return ErrorMess.NotFound;
+        }
         return this.removeUserById(user.getId());
     }
 
@@ -103,15 +105,22 @@ public class Library {
 
     double getFine(int userId, int bookId, LocalDate date) {
         Book book = bookStorage.searchBookById(bookId);
-        if(book == null) return -1;
-        if(!book.isBorrowed()){return -2;}
+        if (book == null) return -1;
+        if (!book.isBorrowed()) {
+            return -2;
+        }
         User user = this.getUserById(userId);
-        if(user == null) return -3;
+        if (user == null) return -3;
         double fine = (book.timeBorrowed(date) - user.getBorrowDays()) * user.getFinePerDay();
-        if(fine <= 0) return 0;
+        if (fine <= 0) return 0;
         return fine;
     }
 
-    public LinkedList<Book> getBooks() {return this.bookStorage.getBooks();}
-    public LinkedList<User> getUser() {return this.usersData.getUsers();}
+    public LinkedList<Book> getBooks() {
+        return this.bookStorage.getBooks();
+    }
+
+    public LinkedList<User> getUser() {
+        return this.usersData.getUsers();
+    }
 }

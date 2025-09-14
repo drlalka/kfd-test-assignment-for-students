@@ -8,15 +8,21 @@ public abstract class User {
     private final String name;
     private final String email;
     private final List<Integer> borrowedBooks = new ArrayList<>();
+
     public abstract int getMaxBooks();
+
     public abstract int getBorrowDays();
+
     public abstract double getFinePerDay();
+
     public abstract User copy();
+
     protected User(int userId, String name, String email) {
         this.userId = userId;
         this.name = name;
         this.email = email;
     }
+
     public int getId() {
         return userId;
     }
@@ -25,10 +31,14 @@ public abstract class User {
         return name;
     }
 
-    public String getEmail() {return email;}
+    public String getEmail() {
+        return email;
+    }
 
     public ErrorMess setId(int userId) {
-        if(userId <= 0){return  ErrorMess.BadRequest;}
+        if (userId <= 0) {
+            return ErrorMess.BadRequest;
+        }
         this.userId = userId;
         return ErrorMess.OK;
     }
@@ -38,9 +48,15 @@ public abstract class User {
     }
 
     public ErrorMess borrowBook(int bookId) {
-        if(bookId <= 0){return ErrorMess.BadRequest;}
-        if(borrowedBooks.contains(bookId)){return ErrorMess.Doubl;}
-        if(borrowedBooks.size() >= getMaxBooks()){return  ErrorMess.Aborted;}
+        if (bookId <= 0) {
+            return ErrorMess.BadRequest;
+        }
+        if (borrowedBooks.contains(bookId)) {
+            return ErrorMess.Doubl;
+        }
+        if (borrowedBooks.size() >= getMaxBooks()) {
+            return ErrorMess.Aborted;
+        }
         borrowedBooks.add(bookId);
         return ErrorMess.OK;
     }
@@ -50,7 +66,7 @@ public abstract class User {
         return removed ? ErrorMess.OK : ErrorMess.NotFound;
     }
 
-    public void print(){
+    public void print() {
         System.out.println("User:" + getId() + "\n\t" + getName() + "\n\t" + getEmail() + "\n");
     }
 }

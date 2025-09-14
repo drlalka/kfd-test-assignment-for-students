@@ -2,10 +2,12 @@ package models;
 
 public class Faculty extends User {
     String department;
+
     public Faculty(int userId, String name, String email, String department) {
         super(userId, name, email);
         this.department = department;
     }
+
     @Override
     public int getMaxBooks() {
         return 10;
@@ -21,9 +23,11 @@ public class Faculty extends User {
         return 1;
     }
 
-    public String getDepartment() {return this.department;}
+    public String getDepartment() {
+        return this.department;
+    }
 
-    public User copy(){
+    public User copy() {
         return new Faculty(this.getId(), this.getName(), this.getEmail(), this.department);
     }
 
