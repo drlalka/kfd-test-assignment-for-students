@@ -8,6 +8,9 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
 
+// Handles interaction with the user via the command line.
+// Collects input, passes it to the library engine, and shows results.
+
 public class CLI {
     private final Library library;
     private final BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));

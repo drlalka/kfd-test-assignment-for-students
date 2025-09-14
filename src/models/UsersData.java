@@ -2,6 +2,7 @@ package models;
 
 import java.util.*;
 
+// Manages user records and provides search, add, and remove operations
 
 public class UsersData {
     private final Map<Integer, User> usersId;
@@ -9,8 +10,8 @@ public class UsersData {
     private int lastId;
 
     public UsersData() {
-        this.usersId = new HashMap<Integer, User>();
-        this.usersEmail = new HashMap<String, User>();
+        this.usersId = new HashMap<Integer, User>(); // we dont need to iterate it, but remove, find and add. so HM is the best choice
+        this.usersEmail = new HashMap<String, User>();// also we need to have way to find ID fast
         lastId = 0;
     }
 

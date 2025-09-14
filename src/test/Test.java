@@ -11,31 +11,31 @@ public class Test {
         Library library = new Library();
         String[] inputLines = {
                 "1",
-                "1", "Clean Code", "Robert Martin",
+                "1", "Clean Code", "Robert Martin", //add 3 books
                 "1", "Effective Java", "Joshua Bloch",
                 "1", "ClouFare", "Kolka",
-                "4",
+                "4", //show books
                 "0",
                 "2",
-                "1", "1", "Alice Smith", "alice@example.com", "A01-001",
+                "1", "1", "Alice Smith", "alice@example.com", "A01-001", //add 3 userd
                 "1", "2", "Prof. Clark", "clark@example.com", "CS Department",
                 "1", "3", "Kolkaa the writer", "kolks@jirmiy.com",
-                "4",
+                "4", //show users
                 "0",
                 "3",
-                "1", "1", "1", "2005-03-09",
-                "3",
+                "1", "1", "1", "2005-03-09", //add borrow session
+                "3", //show overdue
                 "0",
                 "1",
-                "3", "1", "1",
+                "3", "1", "1", //find book
                 "0",
                 "3",
-                "2", "1", "1", "2005-06-09",
+                "2", "1", "1", "2005-06-09",//return
                 "0",
                 "1",
-                "3", "1", "1",
+                "3", "1", "1",// search book
                 "0",
-                "0"
+                "0"//exit
         };
 
         String input = String.join("\n", inputLines);

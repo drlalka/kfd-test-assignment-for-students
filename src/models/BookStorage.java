@@ -4,14 +4,22 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.LinkedHashMap;
 
+// Stores and manages books in the library.
+// Responsible for adding, removing, searching, and tracking overdue books.
+// Overdue is tracked from the book side (not the user side), because
+// each user can have multiple books, and in most libraries the count of books
+// is about the same or larger than the count of users.
+// of borrowed elements, while preserving order and providing quick access by ID.
+
+
 public class BookStorage {
     private final Map<Integer, Book> booksById;
     private final Map<String, Book> booksByName;
     private int lastId;
 
     public BookStorage() {
-        this.booksById = new LinkedHashMap<>();
-        this.booksByName = new LinkedHashMap<>();
+        this.booksById = new LinkedHashMap<>();// LinkedHashMap is chosen to have fast iteration and add/search/remove
+        this.booksByName = new LinkedHashMap<>(); // Fast way to find object not only by id (it could be lost)
         this.lastId = 0;
     }
 

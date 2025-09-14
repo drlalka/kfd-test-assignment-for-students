@@ -70,3 +70,6 @@ make lint        # runs Checkstyle on all source files
 make clean       # removes compiled files in 'out'
 make clean-all   # removes compiled files and Checkstyle artifacts
 ```
+## P.S.
+
+if we talk about LLM, i use it for consultations(cause i am not main-java writer and i have some pointer problems that was solved by AI) and making linter settings (in makefile too). And of course i used Idea Code Completion, that helped me to write (getters/settrs for example)

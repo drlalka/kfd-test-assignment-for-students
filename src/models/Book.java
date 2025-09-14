@@ -3,6 +3,9 @@ package models;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
+// Represents a book with its basic information and borrowing state, also date is more important for book, not for user
+// (cause not user but holder more interested in current book and its state)
+
 public class Book {
     private final String name;
     private final String author;
@@ -12,7 +15,7 @@ public class Book {
     private LocalDate borrowDate;
 
     public Book(int id, String name, String author) {
-        this.id = id;
+        this.id = id; //use it because its more comfortable and may be useful for DB. also compare is faster for integer
         this.name = name.toLowerCase();
         this.author = author;
         this.idBorrowUser = 0;

@@ -3,10 +3,14 @@ package models;
 import java.util.ArrayList;
 import java.util.List;
 
+// Represents a user with personal data and their borrowed books.
+
 public abstract class User {
     private int userId;
     private final String name;
     private final String email;
+
+    // we know that it cant have more than const books, so its more important to have fast insert and delete -> List
     private final List<Integer> borrowedBooks = new ArrayList<>();
 
     public abstract int getMaxBooks();

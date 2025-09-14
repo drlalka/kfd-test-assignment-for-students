@@ -5,6 +5,9 @@ import models.*;
 import java.time.LocalDate;
 import java.util.LinkedList;
 
+// Connects user data and book storage into a single system.
+// Provides operations that require access to both parts.
+
 public class Library {
     private final BookStorage bookStorage;
     private final UsersData usersData;
